@@ -1,5 +1,6 @@
 ./
 template-finder/
+client-payment-reminder-generator/
 salon-booth-rent-calculator/
 chair-rental-profit-calculator/
 salon-suite-expense-tracker/
