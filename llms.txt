@@ -3,6 +3,7 @@
 LedgerLaunchCo provides practical organization spreadsheets and free calculators for solo service professionals. The free tools are calculators and admin checks, not tax, legal, financial, medical, or professional advice.
 
 - https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/
+- https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/template-finder/
 - https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/salon-booth-rent-calculator/
 - https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/chair-rental-profit-calculator/
 - https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/salon-suite-expense-tracker/

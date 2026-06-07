@@ -1,4 +1,5 @@
 ./
+template-finder/
 salon-booth-rent-calculator/
 chair-rental-profit-calculator/
 salon-suite-expense-tracker/
