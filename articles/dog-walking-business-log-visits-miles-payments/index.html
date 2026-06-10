@@ -21,6 +21,16 @@
 :root{color-scheme:light;--ink:#202124;--muted:#5f5a52;--paper:#fbf7ef;--white:#fffdf8;--line:#dfd5c7;--accent:#8a5b26;--green:#2f6f5e;--gold:#bd8a2b;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);line-height:1.62}a{color:inherit}header,main,footer{width:min(980px,calc(100% - 32px));margin:0 auto}header{padding:32px 0 22px;border-bottom:1px solid var(--line)}.brand{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}.eyebrow{display:inline-flex;margin:24px 0 10px;padding:6px 10px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12px;font-weight:850;color:#4a4038}h1{font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacing:0;margin:0 0 14px;max-width:920px}.lede{font-size:19px;color:var(--muted);max-width:780px;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start;padding:28px 0 42px}.article{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:26px}.article h2{font-size:30px;line-height:1.13;margin:34px 0 10px}.article h3{font-size:22px;line-height:1.16;margin:24px 0 8px}.article p{margin:0 0 16px}.article ul,.article ol{padding-left:22px;margin:0 0 18px}.article li{margin:8px 0}.panel{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:18px;position:sticky;top:16px}.panel h2{font-size:22px;line-height:1.14;margin:0 0 10px}.button{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:46px;border-radius:7px;background:var(--ink);color:#fff;text-decoration:none;font-weight:900;text-align:center;padding:10px 12px;margin-top:10px}.secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}.note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:28px 0}.card{display:block;background:var(--white);border:1px solid var(--line);border-radius:8px;padding:18px;text-decoration:none}.card strong{display:block;font-size:20px;line-height:1.18;margin-bottom:7px}.card span{display:block;color:var(--muted)}footer{padding:0 0 36px;color:var(--muted);font-size:13px}.related{margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}.related a{display:block;margin:7px 0;color:#2f6f5e;font-weight:800}@media(max-width:860px){.layout,.grid{grid-template-columns:1fr}.panel{position:static}header{padding-top:24px}}
 </style>
+<style id="ll-email-capture-style">
+.ll-email-capture{width:min(1100px,calc(100% - 32px));margin:26px auto 34px;padding:18px;border:1px solid #ded5c8;border-radius:8px;background:#fffdf8;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:18px;align-items:center;box-shadow:0 8px 24px rgba(32,33,36,.06)}
+.ll-email-capture strong{display:block;margin:0 0 5px;color:#202124;font-size:20px;line-height:1.15}
+.ll-email-capture p{margin:0;color:#635f5a;font-size:14px;line-height:1.45}
+.ll-email-capture-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}
+.ll-email-capture-form input{min-height:44px;border:1px solid #ded5c8;border-radius:6px;padding:10px 11px;font-size:16px;background:#fff;color:#202124}
+.ll-email-capture-form button{min-height:44px;border:0;border-radius:6px;background:#202124;color:#fff;font-weight:850;padding:10px 14px;cursor:pointer}
+.ll-email-capture-status{grid-column:1/-1;min-height:20px;font-size:13px!important;color:#2f6f5e!important}
+@media(max-width:760px){.ll-email-capture{grid-template-columns:1fr}.ll-email-capture-form{grid-template-columns:1fr}.ll-email-capture-form button{width:100%}}
+</style>
 </head>
 <body>
   <header>
@@ -78,5 +88,39 @@
     </aside>
   </main>
   <footer>LedgerLaunchCo builds practical spreadsheets for solo-service admin problems.</footer>
+<script id="ll-email-capture-script">
+(() => {
+  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/capture';
+  document.querySelectorAll('.ll-email-capture-form').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const status = form.querySelector('.ll-email-capture-status');
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const tool = form.querySelector('input[name="tool"]').value;
+      status.textContent = 'Saving...';
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify({
+            email,
+            tool,
+            page: location.pathname,
+            source: 'free_tool',
+            medium: 'email_capture',
+            campaign: 'll_free_tools_capture_20260610'
+          })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
+        status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
+        form.reset();
+      } catch (error) {
+        status.textContent = 'Could not save that email. Please try again in a minute.';
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reseller Profit Leak Check | LedgerLaunchCo</title>
+  <meta name="description" content="Estimate how much of a reseller sale may disappear into COGS, fees, shipping, and payout gaps. Educational organizer, not tax or financial advice.">
+  <style>
+    :root{--ink:#23313a;--teal:#1c8c86;--mint:#ddf3ec;--cream:#fff8ea;--gold:#f2b84b;--coral:#e96855;--line:#d6dee2}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.45}
+    header{background:var(--ink);color:white;padding:28px 18px} .wrap{max-width:1040px;margin:auto}
+    h1{font-size:42px;line-height:1.05;margin:14px 0 10px} p{font-size:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}@media(max-width:760px){.grid{grid-template-columns:1fr}h1{font-size:34px}}
+    .panel{background:white;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 8px 20px rgba(35,49,58,.08)}
+    label{display:block;font-weight:700;margin:12px 0 6px} input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:16px}
+    .result{background:var(--mint);border-radius:10px;padding:18px;margin-top:16px}.big{font-size:36px;font-weight:800;color:var(--teal)}
+    .warn{color:#8a3b2e;font-weight:700}.cta{display:inline-block;background:var(--teal);color:white;text-decoration:none;padding:14px 18px;border-radius:8px;font-weight:800;margin-top:12px}
+    table{width:100%;border-collapse:collapse;margin-top:12px} th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left} th{background:var(--ink);color:white}
+    footer{padding:24px 18px;color:#5a6870;font-size:14px}
+  </style>
+<style id="ll-email-capture-style">
+.ll-email-capture{width:min(1100px,calc(100% - 32px));margin:26px auto 34px;padding:18px;border:1px solid #ded5c8;border-radius:8px;background:#fffdf8;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:18px;align-items:center;box-shadow:0 8px 24px rgba(32,33,36,.06)}
+.ll-email-capture strong{display:block;margin:0 0 5px;color:#202124;font-size:20px;line-height:1.15}
+.ll-email-capture p{margin:0;color:#635f5a;font-size:14px;line-height:1.45}
+.ll-email-capture-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}
+.ll-email-capture-form input{min-height:44px;border:1px solid #ded5c8;border-radius:6px;padding:10px 11px;font-size:16px;background:#fff;color:#202124}
+.ll-email-capture-form button{min-height:44px;border:0;border-radius:6px;background:#202124;color:#fff;font-weight:850;padding:10px 14px;cursor:pointer}
+.ll-email-capture-status{grid-column:1/-1;min-height:20px;font-size:13px!important;color:#2f6f5e!important}
+@media(max-width:760px){.ll-email-capture{grid-template-columns:1fr}.ll-email-capture-form{grid-template-columns:1fr}.ll-email-capture-form button{width:100%}}
+</style>
+</head>
+<body>
+  <header><div class="wrap">
+    <strong>LedgerLaunchCo</strong>
+    <h1>Reseller Profit Leak Check</h1>
+    <p>Before you celebrate the sale price, check what fees, shipping, cost of goods, and payout gaps may leave behind.</p>
+  </div></header>
+  <main class="wrap">
+    <section class="grid">
+      <div class="panel">
+        <h2>Enter one sale</h2>
+        <label for="platform">Platform</label>
+        <select id="platform">
+          <option value="0.1615">eBay starter estimate</option>
+          <option value="0.20">Poshmark starter estimate</option>
+          <option value="0.129">Mercari starter estimate</option>
+          <option value="0.129">Depop starter estimate</option>
+          <option value="0.109">Whatnot starter estimate</option>
+          <option value="0">Custom / enter fee below</option>
+        </select>
+        <label for="price">Sold price</label><input id="price" type="number" value="58" step="0.01">
+        <label for="shipPaid">Buyer shipping paid</label><input id="shipPaid" type="number" value="8.95" step="0.01">
+        <label for="shipCost">Actual shipping cost</label><input id="shipCost" type="number" value="7.88" step="0.01">
+        <label for="cogs">Item cost + prep cost</label><input id="cogs" type="number" value="20.50" step="0.01">
+        <label for="fee">Estimated platform/payment fee %</label><input id="fee" type="number" value="16.15" step="0.01">
+        <label for="fixed">Fixed fee</label><input id="fixed" type="number" value="0.30" step="0.01">
+      </div>
+      <div class="panel">
+        <h2>Your quick read</h2>
+        <div class="result"><div>Estimated net profit</div><div id="profit" class="big">$0.00</div><div id="margin"></div></div>
+        <table>
+          <tr><th>Line</th><th>Amount</th></tr>
+          <tr><td>Gross collected</td><td id="gross"></td></tr>
+          <tr><td>Estimated fees</td><td id="fees"></td></tr>
+          <tr><td>Shipping leak</td><td id="shipping"></td></tr>
+          <tr><td>COGS</td><td id="cogsOut"></td></tr>
+          <tr><td>Expected payout before COGS</td><td id="payout"></td></tr>
+        </table>
+        <p id="diagnosis" class="warn"></p>
+        <a class="cta" href="https://www.etsy.com/listing/4519407228/reseller-inventory-spreadsheet-profit?utm_source=reseller_profit_leak_tool&utm_medium=free_tool&utm_campaign=reseller_launch_20260610&utm_content=ll-reseller">Get the full reseller tracker</a>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Why this matters</h2>
+      <p>Resellers often know the sale price but lose the thread on fees, labels, COGS, refunds, and the actual deposit. This check is a quick organizer. The paid tracker adds inventory, crosslisting, stale-item aging, and payout reconciliation.</p>
+      <p><strong>Note:</strong> This is educational organization only. Platform fees change. This is not tax, legal, financial, accounting, or platform-policy advice.</p>
+    </section>
+  </main>
+  <footer><div class="wrap">Educational organizer only. Not tax, legal, financial, accounting, or platform-policy advice.</div></footer>
+  <script>
+    const ids = ['price','shipPaid','shipCost','cogs','fee','fixed','platform'];
+    const money = n => '$' + (isFinite(n)?n:0).toFixed(2);
+    function calc(){
+      const price=+document.getElementById('price').value||0, shipPaid=+shipPaidEl.value||0, shipCost=+shipCostEl.value||0, cogs=+cogsEl.value||0;
+      const feePct=(+feeEl.value||0)/100, fixed=+fixedEl.value||0;
+      const gross=price+shipPaid, fees=gross*feePct+fixed, payout=gross-shipCost-fees, profit=payout-cogs, margin=price?profit/price:0;
+      grossEl.textContent=money(gross); feesEl.textContent=money(fees); shippingEl.textContent=money(shipCost-shipPaid); cogsOutEl.textContent=money(cogs); payoutEl.textContent=money(payout);
+      profitEl.textContent=money(profit); marginEl.textContent=(margin*100).toFixed(1)+'% margin on sold price';
+      diagnosisEl.textContent = profit < 0 ? 'This sale may be losing money after fees, shipping, and COGS.' : (margin < .2 ? 'This may be thinner than it looks. Check fees, labels, and COGS before restocking.' : 'Looks healthy on this quick check. Reconcile the actual deposit after payout.');
+    }
+    const shipPaidEl=document.getElementById('shipPaid'), shipCostEl=document.getElementById('shipCost'), cogsEl=document.getElementById('cogs'), feeEl=document.getElementById('fee'), fixedEl=document.getElementById('fixed');
+    const grossEl=document.getElementById('gross'), feesEl=document.getElementById('fees'), shippingEl=document.getElementById('shipping'), payoutEl=document.getElementById('payout'), profitEl=document.getElementById('profit'), marginEl=document.getElementById('margin');
+    const cogsOutEl=document.getElementById('cogsOut'), diagnosisEl=document.getElementById('diagnosis');
+    document.getElementById('platform').addEventListener('change', e => { feeEl.value = (+e.target.value*100).toFixed(2); calc(); });
+    ids.forEach(id=>document.getElementById(id).addEventListener('input', calc)); calc();
+  </script>
+<script id="ll-email-capture-script">
+(() => {
+  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/capture';
+  document.querySelectorAll('.ll-email-capture-form').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const status = form.querySelector('.ll-email-capture-status');
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const tool = form.querySelector('input[name="tool"]').value;
+      status.textContent = 'Saving...';
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify({
+            email,
+            tool,
+            page: location.pathname,
+            source: 'free_tool',
+            medium: 'email_capture',
+            campaign: 'll_free_tools_capture_20260610'
+          })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
+        status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
+        form.reset();
+      } catch (error) {
+        status.textContent = 'Could not save that email. Please try again in a minute.';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

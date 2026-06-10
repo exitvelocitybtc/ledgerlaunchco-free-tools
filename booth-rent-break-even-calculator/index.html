@@ -23,6 +23,16 @@
 </style>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free Booth Rent Break-Even Calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "url": "https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/booth-rent-break-even-calculator/", "description": "Estimate how many appointments it takes to cover booth rent before your week starts making money.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who is this booth rent break-even check for?", "acceptedAnswer": {"@type": "Answer", "text": "It is for independent beauty pros, hair stylists, barbers, lash techs, nail techs, estheticians, booth renters, chair renters, and suite renters who want a fast way to see whether how many appointments are needed before booth rent is covered is the admin leak worth fixing first."}}, {"@type": "Question", "name": "Is this a full salon booth rent tracker?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a free quick check. The full Salon Booth Rent Tracker is the workbook for ongoing client records, payments, expenses, and dashboard tracking."}}, {"@type": "Question", "name": "What should I search if I need something more complete?", "acceptedAnswer": {"@type": "Answer", "text": "Start with booth rent break even calculator, then compare whether the tool includes the specific payment, client, expense, and dashboard pieces your business actually uses."}}]}</script>
+<style id="ll-email-capture-style">
+.ll-email-capture{width:min(1100px,calc(100% - 32px));margin:26px auto 34px;padding:18px;border:1px solid #ded5c8;border-radius:8px;background:#fffdf8;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:18px;align-items:center;box-shadow:0 8px 24px rgba(32,33,36,.06)}
+.ll-email-capture strong{display:block;margin:0 0 5px;color:#202124;font-size:20px;line-height:1.15}
+.ll-email-capture p{margin:0;color:#635f5a;font-size:14px;line-height:1.45}
+.ll-email-capture-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}
+.ll-email-capture-form input{min-height:44px;border:1px solid #ded5c8;border-radius:6px;padding:10px 11px;font-size:16px;background:#fff;color:#202124}
+.ll-email-capture-form button{min-height:44px;border:0;border-radius:6px;background:#202124;color:#fff;font-weight:850;padding:10px 14px;cursor:pointer}
+.ll-email-capture-status{grid-column:1/-1;min-height:20px;font-size:13px!important;color:#2f6f5e!important}
+@media(max-width:760px){.ll-email-capture{grid-template-columns:1fr}.ll-email-capture-form{grid-template-columns:1fr}.ll-email-capture-form button{width:100%}}
+</style>
 </head>
 <body style="--accent:#5a365a">
   <header>
@@ -97,5 +107,39 @@
     ['income','fixed','variable'].forEach(id => document.getElementById(id).addEventListener('input', update));
     update();
   </script>
+<script id="ll-email-capture-script">
+(() => {
+  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/capture';
+  document.querySelectorAll('.ll-email-capture-form').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const status = form.querySelector('.ll-email-capture-status');
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const tool = form.querySelector('input[name="tool"]').value;
+      status.textContent = 'Saving...';
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify({
+            email,
+            tool,
+            page: location.pathname,
+            source: 'free_tool',
+            medium: 'email_capture',
+            campaign: 'll_free_tools_capture_20260610'
+          })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
+        status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
+        form.reset();
+      } catch (error) {
+        status.textContent = 'Could not save that email. Please try again in a minute.';
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
