@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cleaning Job Profit Check | LedgerLaunchCo</title>
+  <meta name="description" content="Estimate cleaning job profit after labor, supplies, mileage, and unpaid balance. Educational organizer, not tax or financial advice.">
+  <link rel="canonical" href="https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/cleaning-job-profit-check/">
+  <meta property="og:title" content="Cleaning Job Profit Check | LedgerLaunchCo">
+  <meta property="og:description" content="Estimate cleaning job profit after labor, supplies, mileage, and unpaid balance. Educational organizer, not tax or financial advice.">
+  <meta property="og:url" content="https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/cleaning-job-profit-check/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <style>
+:root{--ink:#23313a;--teal:#1c8c86;--mint:#ddf3ec;--cream:#fff8ea;--gold:#f2b84b;--coral:#e96855;--line:#d6dee2}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.45}
+header{background:var(--ink);color:white;padding:28px 18px}.wrap{max-width:1040px;margin:auto}
+h1{font-size:42px;line-height:1.05;margin:14px 0 10px}p{font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+@media(max-width:760px){.grid{grid-template-columns:1fr}h1{font-size:34px}}
+.panel{background:white;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 8px 20px rgba(35,49,58,.08)}
+label{display:block;font-weight:700;margin:12px 0 6px}input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:16px}
+.result{background:var(--mint);border-radius:10px;padding:18px;margin-top:16px}.big{font-size:36px;font-weight:800;color:var(--teal)}
+.warn{color:#8a3b2e;font-weight:700}.cta{display:inline-block;background:var(--teal);color:white;text-decoration:none;padding:14px 18px;border-radius:8px;font-weight:800;margin-top:12px}
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{background:var(--ink);color:white}
+footer{padding:24px 18px;color:#5a6870;font-size:14px}
+</style>
+  <style id="ll-email-capture-style">
+.ll-email-capture{width:min(1100px,calc(100% - 32px));margin:26px auto 34px;padding:18px;border:1px solid #ded5c8;border-radius:8px;background:#fffdf8;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:18px;align-items:center;box-shadow:0 8px 24px rgba(32,33,36,.06)}
+.ll-email-capture strong{display:block;margin:0 0 5px;color:#202124;font-size:20px;line-height:1.15}
+.ll-email-capture p{margin:0;color:#635f5a;font-size:14px;line-height:1.45}
+.ll-email-capture-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}
+.ll-email-capture-form input{min-height:44px;border:1px solid #ded5c8;border-radius:6px;padding:10px 11px;font-size:16px;background:#fff;color:#202124}
+.ll-email-capture-form button{min-height:44px;border:0;border-radius:6px;background:#202124;color:#fff;font-weight:850;padding:10px 14px;cursor:pointer}
+.ll-email-capture-status{grid-column:1/-1;min-height:20px;font-size:13px!important;color:#2f6f5e!important}
+@media(max-width:760px){.ll-email-capture{grid-template-columns:1fr}.ll-email-capture-form{grid-template-columns:1fr}.ll-email-capture-form button{width:100%}}
+</style>
+</head>
+<body>
+  <header><div class="wrap">
+    <strong>LedgerLaunchCo</strong>
+    <h1>Cleaning Job Profit Check</h1>
+    <p>A full calendar does not always mean profitable jobs. Check price, labor, supplies, mileage, and unpaid balance before the week gets blurry.</p>
+  </div></header>
+  <main class="wrap">
+    <section class="grid">
+      <div class="panel">
+        <h2>Enter one job</h2>
+        <label>Quoted job price</label><input id="price" type="number" value="220" step="0.01">
+        <label>Amount paid so far</label><input id="paid" type="number" value="0" step="0.01">
+        <label>Labor hours</label><input id="hours" type="number" value="3" step="0.1">
+        <label>Labor cost per hour</label><input id="laborRate" type="number" value="30" step="0.01">
+        <label>Supply cost</label><input id="supplies" type="number" value="12" step="0.01">
+        <label>Miles driven</label><input id="miles" type="number" value="10" step="0.1">
+        <label>Mileage value per mile</label><input id="mileRate" type="number" value="0.70" step="0.01">
+      </div>
+      <div class="panel">
+        <h2>Your quick read</h2>
+        <div class="result"><div>Estimated job profit</div><div id="profit" class="big">$0.00</div><div id="margin"></div></div>
+        <table>
+          <tr><th>Line</th><th>Amount</th></tr>
+          <tr><td>Direct costs</td><td id="direct"></td></tr>
+          <tr><td>Unpaid balance</td><td id="balance"></td></tr>
+          <tr><td>Labor cost</td><td id="labor"></td></tr>
+          <tr><td>Mileage value</td><td id="mileage"></td></tr>
+        </table>
+        <p id="diagnosis" class="warn"></p>
+        <a class="cta" href="https://business-click-router.exitvelocitybtc.workers.dev/r/ll-cleaning?src=cleaning_job_profit_tool&amp;medium=free_tool&amp;campaign=cleaning_launch_20260610">See the full cleaning tracker</a>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Why this matters</h2>
+      <p>Cleaning businesses often track appointments but not job-level profitability. This free check shows whether the job still works after labor, supplies, mileage, and unpaid balance. The paid tracker expands this across clients, recurring plans, invoices, expenses, trips, and dashboards.</p>
+      <p><strong>Note:</strong> Educational organization only. This is not tax, legal, financial, accounting, employment, insurance, or business advice.</p>
+    </section>
+  </main>
+  
+<section class="ll-email-capture">
+  <div>
+    <strong>Want the finished tracker and future free tools?</strong>
+    <p>Leave an email for occasional LedgerLaunchCo updates. No spam, no advice claims, just practical organizer tools.</p>
+  </div>
+  <form class="ll-email-capture-form">
+    <input type="email" name="email" placeholder="you@example.com" required>
+    <input type="hidden" name="tool" value="cleaning_job_profit_check">
+    <button type="submit">Send updates</button>
+    <p class="ll-email-capture-status"></p>
+  </form>
+</section>
+
+  <footer><div class="wrap">Educational organizer only. Not tax, legal, financial, accounting, employment, insurance, or business advice.</div></footer>
+  <script>
+    const ids=['price','paid','hours','laborRate','supplies','miles','mileRate'];
+    const money=n=>'$'+(isFinite(n)?n:0).toFixed(2);
+    function calc(){
+      const price=+priceEl.value||0, paid=+paidEl.value||0, hours=+hoursEl.value||0, laborRate=+laborRateEl.value||0, supplies=+suppliesEl.value||0, miles=+milesEl.value||0, mileRate=+mileRateEl.value||0;
+      const labor=hours*laborRate, mileage=miles*mileRate, direct=labor+supplies+mileage, profit=price-direct, balance=price-paid, margin=price?profit/price:0;
+      profitEl.textContent=money(profit); marginEl.textContent=(margin*100).toFixed(1)+'% margin before overhead';
+      directEl.textContent=money(direct); balanceEl.textContent=money(balance); laborEl.textContent=money(labor); mileageEl.textContent=money(mileage);
+      diagnosisEl.textContent = balance > 0 ? 'This job still has money outstanding. Track the follow-up before it ages.' : (margin < .25 ? 'This job may be thinner than it looks after direct costs.' : 'Looks healthy on this quick check. Track each job so the weekly picture stays clear.');
+    }
+    const priceEl=document.getElementById('price'), paidEl=document.getElementById('paid'), hoursEl=document.getElementById('hours'), laborRateEl=document.getElementById('laborRate'), suppliesEl=document.getElementById('supplies'), milesEl=document.getElementById('miles'), mileRateEl=document.getElementById('mileRate');
+    const profitEl=document.getElementById('profit'), marginEl=document.getElementById('margin'), directEl=document.getElementById('direct'), balanceEl=document.getElementById('balance'), laborEl=document.getElementById('labor'), mileageEl=document.getElementById('mileage'), diagnosisEl=document.getElementById('diagnosis');
+    ids.forEach(id=>document.getElementById(id).addEventListener('input', calc)); calc();
+  </script>
+
+
+<script id="ll-email-capture-script">
+(() => {
+  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/capture';
+  const sections = [...document.querySelectorAll('.ll-email-capture')];
+  async function captureReady() {
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({ email: 'dry-run@example.com', tool: 'frontend_check', page: location.pathname, dry_run: true })
+      });
+      const type = response.headers.get('content-type') || '';
+      if (!type.includes('application/json')) throw new Error('capture endpoint not deployed');
+      const data = await response.json();
+      return Boolean(data.ok && data.dry_run);
+    } catch (error) { return false; }
+  }
+  captureReady().then((ready) => {
+    if (!ready) { sections.forEach((section) => section.remove()); return; }
+    document.querySelectorAll('.ll-email-capture-form').forEach((form) => {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const status = form.querySelector('.ll-email-capture-status');
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const tool = form.querySelector('input[name="tool"]').value;
+        status.textContent = 'Saving...';
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({ email, tool, page: location.pathname, source: 'free_tool', medium: 'email_capture', campaign: 'll_free_tools_capture_20260610' })
+          });
+          const data = await response.json();
+          if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
+          status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
+          form.reset();
+        } catch (error) { status.textContent = 'Could not save that email. Please try again in a minute.'; }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
