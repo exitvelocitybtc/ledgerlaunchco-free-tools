@@ -164,12 +164,6 @@ footer{padding:24px 18px;color:#5a6870;font-size:14px}
   }
 
   window.llCaptureSubmit = submitCapture;
-
-  document.addEventListener('submit', (event) => {
-    const form = event.target.closest && event.target.closest('.ll-email-capture-form');
-    if (!form) return;
-    submitCapture(form, event);
-  }, true);
 })();
 </script>
 

@@ -186,12 +186,6 @@
   }
 
   window.llCaptureSubmit = submitCapture;
-
-  document.addEventListener('submit', (event) => {
-    const form = event.target.closest && event.target.closest('.ll-email-capture-form');
-    if (!form) return;
-    submitCapture(form, event);
-  }, true);
 })();
 </script>
 </body>
