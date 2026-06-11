@@ -79,9 +79,12 @@ footer{padding:24px 18px;color:#5a6870;font-size:14px}
     <strong>Want the finished tracker and future free tools?</strong>
     <p>Leave an email for occasional LedgerLaunchCo updates. No spam, no advice claims, just practical organizer tools.</p>
   </div>
-  <form class="ll-email-capture-form">
+  <form class="ll-email-capture-form" action="https://business-click-router.exitvelocitybtc.workers.dev/capture" method="post">
     <input type="email" name="email" placeholder="you@example.com" required>
     <input type="hidden" name="tool" value="cleaning_job_profit_check">
+    <input type="hidden" name="source" value="free_tool">
+    <input type="hidden" name="medium" value="email_capture">
+    <input type="hidden" name="campaign" value="ll_free_tools_capture_20260610">
     <button type="submit">Send updates</button>
     <p class="ll-email-capture-status"></p>
   </form>
