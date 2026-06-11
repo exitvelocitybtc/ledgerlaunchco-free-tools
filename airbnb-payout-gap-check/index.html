@@ -80,7 +80,7 @@ footer{padding:24px 18px;color:#5a6870;font-size:14px}
     <strong>Want the finished tracker and future free tools?</strong>
     <p>Leave an email for occasional LedgerLaunchCo updates. No spam, no advice claims, just practical organizer tools.</p>
   </div>
-  <form class="ll-email-capture-form" action="https://business-click-router.exitvelocitybtc.workers.dev/capture" method="post">
+  <form class="ll-email-capture-form" action="https://business-click-router.exitvelocitybtc.workers.dev/subscribe" method="post" onsubmit="return window.llCaptureSubmit ? window.llCaptureSubmit(this, event) : true">
     <input type="email" name="email" placeholder="you@example.com" required>
     <input type="hidden" name="tool" value="airbnb_payout_gap_check">
     <input type="hidden" name="source" value="free_tool">
@@ -114,44 +114,62 @@ footer{padding:24px 18px;color:#5a6870;font-size:14px}
 
 <script id="ll-email-capture-script">
 (() => {
-  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/capture';
-  const sections = [...document.querySelectorAll('.ll-email-capture')];
-  async function captureReady() {
+  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/subscribe';
+
+  function statusFor(form) {
+    let status = form.querySelector('.ll-email-capture-status');
+    if (!status) {
+      status = document.createElement('p');
+      status.className = 'll-email-capture-status';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      form.appendChild(status);
+    }
+    return status;
+  }
+
+  async function submitCapture(form, event) {
+    if (event) event.preventDefault();
+    const status = statusFor(form);
+    const emailInput = form.querySelector('input[name="email"]');
+    const email = (emailInput && emailInput.value || '').trim();
+    if (!email || !email.includes('@')) {
+      status.textContent = 'Please enter a valid email address.';
+      if (emailInput) emailInput.focus();
+      return false;
+    }
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    payload.email = email;
+    payload.page = location.pathname;
+    status.textContent = 'Saving...';
+    form.dataset.captureState = 'saving';
+
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify({ email: 'dry-run@example.com', tool: 'frontend_check', page: location.pathname, dry_run: true })
+        body: JSON.stringify(payload)
       });
-      const type = response.headers.get('content-type') || '';
-      if (!type.includes('application/json')) throw new Error('capture endpoint not deployed');
       const data = await response.json();
-      return Boolean(data.ok && data.dry_run);
-    } catch (error) { return false; }
+      if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
+      status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
+      form.dataset.captureState = data.duplicate ? 'duplicate' : 'saved';
+      form.reset();
+    } catch (error) {
+      status.textContent = 'Could not save that email. Please try again in a minute.';
+      form.dataset.captureState = 'error';
+    }
+    return false;
   }
-  captureReady().then((ready) => {
-    if (!ready) { sections.forEach((section) => section.remove()); return; }
-    document.querySelectorAll('.ll-email-capture-form').forEach((form) => {
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const status = form.querySelector('.ll-email-capture-status');
-        const email = form.querySelector('input[name="email"]').value.trim();
-        const tool = form.querySelector('input[name="tool"]').value;
-        status.textContent = 'Saving...';
-        try {
-          const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify({ email, tool, page: location.pathname, source: 'free_tool', medium: 'email_capture', campaign: 'll_free_tools_capture_20260610' })
-          });
-          const data = await response.json();
-          if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
-          status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
-          form.reset();
-        } catch (error) { status.textContent = 'Could not save that email. Please try again in a minute.'; }
-      });
-    });
-  });
+
+  window.llCaptureSubmit = submitCapture;
+
+  document.addEventListener('submit', (event) => {
+    const form = event.target.closest && event.target.closest('.ll-email-capture-form');
+    if (!form) return;
+    submitCapture(form, event);
+  }, true);
 })();
 </script>
 
