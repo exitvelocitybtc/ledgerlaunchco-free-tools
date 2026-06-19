@@ -3,179 +3,160 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Free Booth Rent Break-Even Calculator | LedgerLaunchCo</title>
-<link rel="canonical" href="https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/booth-rent-break-even-calculator/">
-<meta property="og:title" content="Free Booth Rent Break-Even Calculator | LedgerLaunchCo">
-<meta property="og:description" content="Estimate how many appointments it takes to cover booth rent before your week starts making money.">
-<meta property="og:image" content="https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/assets/og/booth-rent-break-even-calculator.png">
-<meta property="og:url" content="https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/booth-rent-break-even-calculator/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Booth Rent Break-Even Calculator | LedgerLaunchCo">
-<meta name="twitter:description" content="Estimate how many appointments it takes to cover booth rent before your week starts making money.">
-<meta name="twitter:image" content="https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/assets/og/booth-rent-break-even-calculator.png">
-  <meta name="description" content="Estimate how many appointments it takes to cover booth rent before your week starts making money.">
-  <meta name="keywords" content="booth rent break even calculator, salon booth rent calculator, hair stylist break even">
+  <title>Booth Rent Break-Even Calculator | Free Salon Suite Math Tool</title>
+  <link rel="canonical" href="https://tools.ledgerlaunchco.com/booth-rent-break-even-calculator/">
+  <meta name="description" content="Free booth rent break-even calculator for stylists, barbers, nail techs, lash techs, and salon suite renters. See how many services cover rent before you pay yourself.">
+  <meta property="og:title" content="Booth Rent Break-Even Calculator">
+  <meta property="og:description" content="See how many services cover rent, supplies, fees, and slow-week buffer before you pay yourself.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.ledgerlaunchco.com/booth-rent-break-even-calculator/">
+  <meta property="og:image" content="https://tools.ledgerlaunchco.com/assets/og/booth-rent-break-even-calculator.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tools.ledgerlaunchco.com/assets/og/booth-rent-break-even-calculator.png">
   <style>
-:root{color-scheme:light;--ink:#202124;--muted:#635f5a;--paper:#faf7f0;--white:#fffdf8;--line:#ded5c8;--accent:#5a365a;--green:#2f6f5e;--gold:#b7892b;--red:#a84b43;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);line-height:1.5}header,main,footer{width:min(1100px,calc(100% - 32px));margin:0 auto}header{padding:34px 0 22px;border-bottom:1px solid var(--line)}.brand{color:var(--accent);font-weight:850;letter-spacing:.04em;font-size:13px;text-transform:uppercase}.eyebrow{display:inline-block;margin:22px 0 10px;padding:5px 10px;border-radius:999px;background:#efe5d5;color:#4b4036;font-weight:800;font-size:12px}h1{max-width:840px;margin:0 0 12px;font-size:clamp(34px,5vw,62px);line-height:1.02;letter-spacing:0}.lede{max-width:780px;margin:0;color:var(--muted);font-size:18px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:24px;padding:26px 0}.panel{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:20px}.panel h2{margin:0 0 10px;font-size:25px;line-height:1.15}.panel h3{margin:22px 0 8px;font-size:18px}.panel p{color:var(--muted);margin:0 0 14px}.bullets{padding-left:20px;color:#403c38}.bullets li{margin:8px 0}label{display:block;margin-top:12px;font-size:13px;font-weight:800;color:#403c38}input,select{width:100%;margin-top:5px;border:1px solid var(--line);border-radius:6px;padding:11px;font-size:16px;background:#fff;color:var(--ink)}.result{margin:18px 0 16px;padding:15px;border-radius:8px;background:#f0eadf;border:1px solid #e0d4c3}.result strong{display:block;color:var(--green);font-size:24px;line-height:1.2}.result span{display:block;margin-top:5px;color:var(--muted);font-size:14px}.button{display:inline-flex;width:100%;min-height:46px;align-items:center;justify-content:center;border-radius:7px;background:var(--ink);color:#fff;text-decoration:none;font-weight:850;text-align:center;padding:10px 12px}.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-top:10px}.meta{font-size:13px;color:var(--muted);margin-top:12px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:26px 0 34px}.card{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:16px}.card strong{display:block;margin-bottom:6px}.card p{color:var(--muted);margin:0 0 12px}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:#403c38;text-decoration:none;background:#fff;font-size:13px}footer{padding:0 0 36px;color:var(--muted);font-size:13px}@media(max-width:880px){.layout,.grid{grid-template-columns:1fr}header{padding-top:24px}}
-.search-block{margin-top:22px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fffaf0}.search-block h3{margin-top:0}.faq{display:grid;gap:12px;margin-top:18px}.faq details{border:1px solid var(--line);border-radius:8px;background:#fff;padding:13px}.faq summary{cursor:pointer;font-weight:850;color:#302c28}.share{margin-top:18px;padding:14px;border-radius:8px;background:#f5efe5;border:1px solid var(--line);font-size:14px;color:#4b4036}.share strong{display:block;color:var(--ink);margin-bottom:4px}
+:root{color-scheme:light;--ink:#1f2421;--muted:#5f645f;--paper:#f7f3ea;--white:#fffefa;--line:#ded6c8;--accent:#4f6f64;--accent2:#7b4c5b;--good:#2f6f5e;--warn:#a66a2a;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);line-height:1.5}header,main,footer{width:min(1080px,calc(100% - 32px));margin:0 auto}header{padding:28px 0 20px;border-bottom:1px solid var(--line)}.brand{font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}.eyebrow{display:inline-flex;margin:20px 0 10px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:#fff7e8;color:#4b4036;font-size:12px;font-weight:850}h1{max-width:880px;margin:0 0 12px;font-size:clamp(34px,7vw,64px);line-height:1.01;letter-spacing:0}.lede{max-width:760px;margin:0;color:var(--muted);font-size:18px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,410px);gap:22px;padding:26px 0 36px}.panel{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:20px}.panel h2{margin:0 0 10px;font-size:25px;line-height:1.15}.panel h3{margin:22px 0 8px;font-size:18px}.panel p{margin:0 0 14px;color:var(--muted)}.bullets{padding-left:20px;color:#3f423e}.bullets li{margin:8px 0}.calc{position:sticky;top:14px}.field{margin-top:13px}label{display:flex;justify-content:space-between;gap:10px;margin:0 0 5px;font-size:13px;font-weight:850;color:#3f423e}.hint{font-weight:650;color:var(--muted)}input,select{width:100%;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font-size:17px;padding:11px}.results{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.metric{border:1px solid var(--line);border-radius:8px;background:#f2eadf;padding:13px}.metric b{display:block;color:var(--good);font-size:26px;line-height:1.05}.metric span{display:block;margin-top:5px;color:var(--muted);font-size:13px}.takeaway{margin:8px 0 16px;padding:14px;border-left:4px solid var(--accent);background:#f8f0e2;border-radius:6px;color:#373b37}.button{display:inline-flex;width:100%;min-height:46px;align-items:center;justify-content:center;border-radius:7px;background:var(--ink);color:#fff;text-decoration:none;font-weight:900;text-align:center;padding:10px 12px}.secondary{margin-top:10px;background:transparent;color:var(--ink);border:1px solid var(--line)}.tiny{font-size:13px;color:var(--muted)}.cta{margin-top:20px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff9ee}.cta strong{display:block;margin-bottom:6px}.formula{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.step{border:1px solid var(--line);border-radius:8px;background:#fff;padding:14px}.step b{display:block;margin-bottom:5px}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chip{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:#3f423e;text-decoration:none;background:#fff;font-size:13px}.share{margin-top:18px;padding:14px;border-radius:8px;background:#f5efe5;border:1px solid var(--line);font-size:14px;color:#4b4036}.share strong{display:block;color:var(--ink);margin-bottom:4px}footer{padding:0 0 36px;color:var(--muted);font-size:13px}.print-only{display:none}@media(max-width:860px){.layout,.formula,.results{grid-template-columns:1fr}.calc{position:static}header{padding-top:22px}}@media print{body{background:#fff}.layout{display:block}.calc{position:static}.button,.links,.share{display:none}.panel{break-inside:avoid}.print-only{display:block}}
 </style>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free Booth Rent Break-Even Calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "url": "https://exitvelocitybtc.github.io/ledgerlaunchco-free-tools/booth-rent-break-even-calculator/", "description": "Estimate how many appointments it takes to cover booth rent before your week starts making money.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who is this booth rent break-even check for?", "acceptedAnswer": {"@type": "Answer", "text": "It is for independent beauty pros, hair stylists, barbers, lash techs, nail techs, estheticians, booth renters, chair renters, and suite renters who want a fast way to see whether how many appointments are needed before booth rent is covered is the admin leak worth fixing first."}}, {"@type": "Question", "name": "Is this a full salon booth rent tracker?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a free quick check. The full Salon Booth Rent Tracker is the workbook for ongoing client records, payments, expenses, and dashboard tracking."}}, {"@type": "Question", "name": "What should I search if I need something more complete?", "acceptedAnswer": {"@type": "Answer", "text": "Start with booth rent break even calculator, then compare whether the tool includes the specific payment, client, expense, and dashboard pieces your business actually uses."}}]}</script>
-<style id="ll-email-capture-style">
-.ll-email-capture{width:min(1100px,calc(100% - 32px));margin:26px auto 34px;padding:18px;border:1px solid #ded5c8;border-radius:8px;background:#fffdf8;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:18px;align-items:center;box-shadow:0 8px 24px rgba(32,33,36,.06)}
-.ll-email-capture strong{display:block;margin:0 0 5px;color:#202124;font-size:20px;line-height:1.15}
-.ll-email-capture p{margin:0;color:#635f5a;font-size:14px;line-height:1.45}
-.ll-email-capture-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}
-.ll-email-capture-form input{min-height:44px;border:1px solid #ded5c8;border-radius:6px;padding:10px 11px;font-size:16px;background:#fff;color:#202124}
-.ll-email-capture-form button{min-height:44px;border:0;border-radius:6px;background:#202124;color:#fff;font-weight:850;padding:10px 14px;cursor:pointer}
-.ll-email-capture-status{grid-column:1/-1;min-height:20px;font-size:13px!important;color:#2f6f5e!important}
-@media(max-width:760px){.ll-email-capture{grid-template-columns:1fr}.ll-email-capture-form{grid-template-columns:1fr}.ll-email-capture-form button{width:100%}}
-</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Booth Rent Break-Even Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://tools.ledgerlaunchco.com/booth-rent-break-even-calculator/",
+        "description": "Free booth rent break-even calculator for stylists, barbers, nail techs, lash techs, and salon suite renters.",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {"@type": "Organization", "name": "LedgerLaunchCo"}
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How do you calculate booth rent break-even?", "acceptedAnswer": {"@type": "Answer", "text": "Estimate profit per service after product costs and card fees, add weekly booth rent plus any slow-week buffer, then divide the weekly fixed load by profit per service. The result is the number of services needed before take-home starts."}},
+          {"@type": "Question", "name": "What should a booth renter include in break-even math?", "acceptedAnswer": {"@type": "Answer", "text": "Include weekly or monthly rent, average service price, product or supply cost per service, card processing fees, and a slow-week buffer. Tips, taxes, and full business expenses may need separate tracking."}},
+          {"@type": "Question", "name": "Is booth rent worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Booth rent can work when your expected weekly services comfortably exceed the break-even count after rent, supplies, fees, and slow-week buffer. This calculator gives an educational estimate, not business, legal, tax, or financial advice."}}
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to estimate booth rent break-even",
+        "step": [
+          {"@type": "HowToStep", "text": "Enter the booth, chair, or salon-suite rent and choose whether it is weekly or monthly."},
+          {"@type": "HowToStep", "text": "Enter average service price, product cost per service, card fee percentage, and any slow-week buffer."},
+          {"@type": "HowToStep", "text": "Use the weekly and monthly break-even counts to judge how many services must happen before real take-home starts."}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body style="--accent:#5a365a">
+<body>
   <header>
     <div class="brand">LedgerLaunchCo</div>
-    <span class="eyebrow">Booth Rent Break-Even Check</span>
+    <span class="eyebrow">Free booth rent calculator, no signup</span>
     <h1>How many appointments pay the rent before you pay yourself?</h1>
-    <p class="lede">Estimate how many appointments it takes to cover booth rent before your week starts making money.</p>
+    <p class="lede">Use this free calculator to estimate your weekly booth-rent break-even point after product cost, card fees, and a slow-week buffer.</p>
   </header>
   <main class="layout">
     <section class="panel">
-      <h2>Who this helps</h2>
-      <p>This page is for independent beauty pros, hair stylists, barbers, lash techs, nail techs, estheticians, booth renters, chair renters, and suite renters who need a quick read on how many appointments are needed before booth rent is covered before committing to another template, app, or manual spreadsheet.</p>
-      <h3>What this catches</h3>
+      <h2>Booth rent is not just rent.</h2>
+      <p>The real question is how many profitable services it takes before rent, supplies, and payment fees are covered. This quick check keeps the math simple enough to use before you sign, renew, or raise prices.</p>
+      <div class="formula">
+        <div class="step"><b>1. Estimate profit per service</b><span class="tiny">Average service price minus product cost and card fees.</span></div>
+        <div class="step"><b>2. Add your fixed weekly load</b><span class="tiny">Booth rent plus the slow-week buffer you want covered.</span></div>
+        <div class="step"><b>3. Divide to find break-even</b><span class="tiny">That is the appointment count before real take-home starts.</span></div>
+      </div>
+      <h3>What to include</h3>
       <ul class="bullets">
-        <li>Whether collected income is turning into real take-home or hiding in unpaid work and expenses.</li>
-        <li>Whether the admin problem is big enough to justify a dedicated tracker.</li>
-        <li>What number you should inspect before buying a full spreadsheet.</li>
+        <li>Weekly or monthly booth/chair/suite rent.</li>
+        <li>Your average service ticket before tips.</li>
+        <li>Typical product or supply cost per service.</li>
+        <li>Card processing percentage if most clients pay by card.</li>
+        <li>A slow-week buffer if you want the number to be more realistic.</li>
       </ul>
-      <h3>Why the paid tracker exists</h3>
-      <p>The free check gives one answer. The full tracker keeps the working system: client records, income, payments, expenses, and dashboard views in one workbook.</p>
-      <div class="search-block">
-        <h3>Search terms this page answers</h3>
-        <p>booth rent break even calculator, salon booth rent calculator, hair stylist break even</p>
-        <p>If you searched for booth rent break even calculator, you probably do not need another generic budget template. You need to see whether how many appointments are needed before booth rent is covered is costing attention, cash, or follow-up time.</p>
+      <div class="cta">
+        <strong>Need the full system?</strong>
+        <p>The free calculator answers one question. The Salon Pro Finance Bundle tracks booth rent, supplies, clients, tips, taxes/records, and real take-home across six spreadsheets.</p>
+        <a class="button" href="https://www.etsy.com/listing/4522938121/salon-pro-finance-bundle-booth-rent?utm_source=booth_rent_calculator&amp;utm_medium=free_tool&amp;utm_campaign=ll_non_ev_distribution_20260617">See the Salon Pro Finance Bundle</a>
+        <p class="tiny">Soft CTA only. The calculator above works without buying anything.</p>
       </div>
-      <h3>Quick questions</h3>
-      <div class="faq"><details><summary>Who is this booth rent break-even check for?</summary><p>It is for independent beauty pros, hair stylists, barbers, lash techs, nail techs, estheticians, booth renters, chair renters, and suite renters who want a fast way to see whether how many appointments are needed before booth rent is covered is the admin leak worth fixing first.</p></details>
-        <details><summary>Is this a full salon booth rent tracker?</summary><p>No. This is a free quick check. The full Salon Booth Rent Tracker is the workbook for ongoing client records, payments, expenses, and dashboard tracking.</p></details>
-        <details><summary>What should I search if I need something more complete?</summary><p>Start with booth rent break even calculator, then compare whether the tool includes the specific payment, client, expense, and dashboard pieces your business actually uses.</p></details></div>
-      <div class="links"><a class="chip" href="../salon-booth-rent-calculator/">Booth Rent Take-Home Check</a>
-        <a class="chip" href="../chair-rental-profit-calculator/">Chair Rental Profit Check</a>
-        <a class="chip" href="../salon-suite-expense-tracker/">Salon Suite Expense Check</a>
-        <a class="chip" href="../lash-tech-income-tracker/">Lash Tech Income Check</a>
-        <a class="chip" href="../nail-tech-expense-tracker/">Nail Tech Expense Check</a>
-        <a class="chip" href="../beauty-pro-weekly-income-calculator/">Beauty Pro Weekly Income Check</a></div>
-      <div class="share"><strong>Useful social angle</strong>Lead with the pain: &quot;How many appointments pay the rent before you pay yourself?&quot; Then send people to the free check before mentioning the paid tracker.</div>
-      <p class="meta">Organization tool only. Not tax, legal, financial, medical, or professional advice.</p>
+      <div class="links">
+        <a class="chip" href="../salon-pro-finance-bundle/">Bundle overview</a>
+        <a class="chip" href="../salon-booth-rent-calculator/">Take-home check</a>
+        <a class="chip" href="../salon-suite-expense-tracker/">Suite expense check</a>
+      </div>
+      <p class="tiny">Educational and organization use only. Not financial, tax, legal, accounting, or business advice.</p>
     </section>
-    <aside class="panel">
-      <h2>Run the quick check</h2>
-      <label for="income">Collected or booked income</label>
-      <input id="income" type="number" min="0" value="7284">
-      <label for="fixed">Rent, unpaid balance, or fixed admin load</label>
-      <input id="fixed" type="number" min="0" value="2250">
-      <label for="variable">Other expenses, backlog, or unpaid work</label>
-      <input id="variable" type="number" min="0" value="781">
-      <div class="result">
-        <strong id="result"></strong>
-        <span id="note"></span>
+    <aside class="panel calc">
+      <h2>Run the numbers</h2>
+      <div class="field">
+        <label for="rent">Rent amount <span class="hint">weekly or monthly</span></label>
+        <input id="rent" type="number" min="0" step="1" value="400">
       </div>
-      <a class="button" href="https://business-click-router.exitvelocitybtc.workers.dev/r/ll-salon?src=ll_free_tools&medium=seo_page&campaign=booth_rent_break_even_calculator">Open the full Salon Booth Rent Tracker</a>
-      <a class="button secondary" href="../">See all free tools</a>
+      <div class="field">
+        <label for="period">Rent period</label>
+        <select id="period">
+          <option value="weekly" selected>Weekly rent</option>
+          <option value="monthly">Monthly rent</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="price">Average service price <span class="hint">before tip</span></label>
+        <input id="price" type="number" min="0" step="1" value="85">
+      </div>
+      <div class="field">
+        <label for="cost">Product cost per service</label>
+        <input id="cost" type="number" min="0" step="1" value="12">
+      </div>
+      <div class="field">
+        <label for="fee">Card fee % <span class="hint">optional</span></label>
+        <input id="fee" type="number" min="0" step="0.1" value="3">
+      </div>
+      <div class="field">
+        <label for="buffer">Slow-week buffer <span class="hint">weekly dollars</span></label>
+        <input id="buffer" type="number" min="0" step="1" value="100">
+      </div>
+      <div class="results">
+        <div class="metric"><b id="profit">$70</b><span>profit per service before rent</span></div>
+        <div class="metric"><b id="weeklyBreak">8</b><span>services per week to break even</span></div>
+        <div class="metric"><b id="monthlyBreak">32</b><span>services per month to break even</span></div>
+        <div class="metric"><b id="above">$70</b><span>take-home per extra service after break-even</span></div>
+      </div>
+      <div class="takeaway" id="takeaway"></div>
+      <button class="button secondary" type="button" onclick="window.print()">Print this result</button>
     </aside>
-  
-<section class="ll-email-capture" aria-label="LedgerLaunchCo updates">
-  <div>
-    <strong>Get the next free worksheet helper</strong>
-    <p>Occasional LedgerLaunchCo updates with free tools, spreadsheet checklists, and practical small-business organizer ideas. Educational only; not financial, tax, or legal advice.</p>
-  </div>
-  <form class="ll-email-capture-form" action="https://business-click-router.exitvelocitybtc.workers.dev/subscribe" method="post" onsubmit="return window.llCaptureSubmit ? window.llCaptureSubmit(this, event) : true">
-    <input type="email" name="email" placeholder="you@example.com" required>
-    <input type="hidden" name="tool" value="booth_rent_break_even_calculator">
-    <input type="hidden" name="source" value="free_tool">
-    <input type="hidden" name="medium" value="email_capture">
-    <input type="hidden" name="campaign" value="ll_free_tools_capture_20260610">
-    <button type="submit">Send updates</button>
-    <p class="ll-email-capture-status" role="status" aria-live="polite"></p>
-  </form>
-</section>
   </main>
-  <footer>
-    LedgerLaunchCo builds practical spreadsheets for people running real work without another subscription.
-  </footer>
+  <footer>LedgerLaunchCo builds spreadsheet organizers for people running real work without another subscription.</footer>
   <script>
     const money = n => new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0}).format(Number.isFinite(n) ? n : 0);
-    const result = document.getElementById('result');
-    const note = document.getElementById('note');
-    function value(id) { return parseFloat(document.getElementById(id).value || '0'); }
+    const num = id => Number(document.getElementById(id).value || 0);
     function update() {
-      const income = value('income');
-      const fixed = value('fixed');
-      const variable = value('variable');
-      const remaining = income - fixed - variable;
-      const load = income ? ((fixed + variable) / income * 100) : 0;
-      result.textContent = money(remaining) + ' after the visible leak';
-      note.textContent = 'The visible leak is ' + load.toFixed(0) + '% of collected or booked income.';
+      const rent = num('rent');
+      const period = document.getElementById('period').value;
+      const weeklyRent = period === 'monthly' ? rent / 4.333 : rent;
+      const servicePrice = num('price');
+      const cost = num('cost');
+      const fee = num('fee') / 100;
+      const buffer = num('buffer');
+      const cardCost = servicePrice * fee;
+      const profit = Math.max(0, servicePrice - cost - cardCost);
+      const weeklyLoad = weeklyRent + buffer;
+      const weeklyBreak = profit > 0 ? Math.ceil(weeklyLoad / profit) : 0;
+      const monthlyLoad = (weeklyRent + buffer) * 4.333;
+      const monthlyBreak = profit > 0 ? Math.ceil(monthlyLoad / profit) : 0;
+      document.getElementById('profit').textContent = money(profit);
+      document.getElementById('weeklyBreak').textContent = String(weeklyBreak);
+      document.getElementById('monthlyBreak').textContent = String(monthlyBreak);
+      document.getElementById('above').textContent = money(profit);
+      document.getElementById('takeaway').textContent =
+        profit > 0
+          ? `At about ${money(profit)} profit per service, you need about ${weeklyBreak} services per week to cover rent and buffer. Service #${weeklyBreak + 1} is where take-home starts.`
+          : 'Enter a service price higher than product cost and card fees to calculate break-even.';
     }
-    ['income','fixed','variable'].forEach(id => document.getElementById(id).addEventListener('input', update));
+    ['rent','period','price','cost','fee','buffer'].forEach(id => document.getElementById(id).addEventListener('input', update));
     update();
   </script>
-<script id="ll-email-capture-script">
-(() => {
-  const endpoint = 'https://business-click-router.exitvelocitybtc.workers.dev/subscribe';
-
-  function statusFor(form) {
-    let status = form.querySelector('.ll-email-capture-status');
-    if (!status) {
-      status = document.createElement('p');
-      status.className = 'll-email-capture-status';
-      status.setAttribute('role', 'status');
-      status.setAttribute('aria-live', 'polite');
-      form.appendChild(status);
-    }
-    return status;
-  }
-
-  async function submitCapture(form, event) {
-    if (event) event.preventDefault();
-    const status = statusFor(form);
-    const emailInput = form.querySelector('input[name="email"]');
-    const email = (emailInput && emailInput.value || '').trim();
-    if (!email || !email.includes('@')) {
-      status.textContent = 'Please enter a valid email address.';
-      if (emailInput) emailInput.focus();
-      return false;
-    }
-
-    const payload = Object.fromEntries(new FormData(form).entries());
-    payload.email = email;
-    payload.page = location.pathname;
-    status.textContent = 'Saving...';
-    form.dataset.captureState = 'saving';
-
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-      const data = await response.json();
-      if (!response.ok || !data.ok) throw new Error(data.error || 'Could not save email.');
-      status.textContent = data.duplicate ? 'Already saved. You are on the LedgerLaunchCo update list.' : 'Saved. We will send useful free-tool and template updates only.';
-      form.dataset.captureState = data.duplicate ? 'duplicate' : 'saved';
-      form.reset();
-    } catch (error) {
-      status.textContent = 'Could not save that email. Please try again in a minute.';
-      form.dataset.captureState = 'error';
-    }
-    return false;
-  }
-
-  window.llCaptureSubmit = submitCapture;
-})();
-</script>
 </body>
 </html>
